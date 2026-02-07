@@ -1,0 +1,18 @@
+.botao {
+    padding: 12px 24px;
+    font-size: large;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.botao:hover {
+        background-color: #d3d3d3;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+#titulo, .botao {
+    font-family: "Nunito", sans-serif;
+    font-weight: 630;
+}
