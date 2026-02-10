@@ -33,14 +33,17 @@ class Estojo {
 
 // INÍCIO DO OBJETO ESTOJO
 $EstojoMelissa = new Estojo();
+$EstojoJoao = new Estojo();
+$EstojoVitor = new Estojo();
 // INSTÂNCIANDO OBJETO
 $EstojoMelissa->cor = "preto";
-$EstojoMelissa->capacidade = "grande";
-$EstojoMelissa->peso = "400g";
+$EstojoJoao->capacidade = "grande";
+$EstojoVitor->peso = "400g";
 // EXECUTANDO MÉTODOS
+echo "<h3>ESTOJO</h3>";
 echo $EstojoMelissa->abrir()."<br>";
-echo $EstojoMelissa->fechar()."<br>";
-echo $EstojoMelissa->organizar()."<br>";
+echo $EstojoJoao->fechar()."<br>";
+echo $EstojoVitor->organizar()."<br><br>";
 
 // CLASSE BORRACHA
 class Borracha {
@@ -69,15 +72,18 @@ class Borracha {
 }
 
 // INÍCIO DO OBJETO BORRACHA
-$BorrachaEscolar = new Borracha();
+$BorrachaEscolarMelissa = new Borracha();
+$BorrachaEscolarJoao = new Borracha();
+$BorrachaEscolarVitor = new Borracha();  
 // INSTÂNCIANDO OBJETO
-$BorrachaEscolar->tamanho = "pequena";
-$BorrachaEscolar->cor = "vermelha";
-$BorrachaEscolar->material = "látex";
+$BorrachaEscolarMelissa->tamanho = "pequena";
+$BorrachaEscolarJoao->cor = "vermelha";
+$BorrachaEscolarVitor->material = "látex";
 // EXECUTANDO MÉTODOS
-echo $BorrachaEscolar->apagar()."<br>";
-echo $BorrachaEscolar->emprestar()."<br>";
-echo $BorrachaEscolar->morder()."<br>";
+echo "<h3>BORRACHA</h3>";
+echo $BorrachaEscolarMelissa->apagar()."<br>";
+echo $BorrachaEscolarJoao->emprestar()."<br>";
+echo $BorrachaEscolarVitor->morder()."<br><br>";
 
 // CLASSE PROJETOR
 class Projetor {
@@ -107,14 +113,17 @@ class Projetor {
 
 // INÍCIO DO OBJETO PROJETOR
 $ProjetorSenai = new Projetor();
+$ProjetorSesi = new Projetor();
+$ProjetorCinema = new Projetor();
 // INSTÂNCIANDO OBJETO
 $ProjetorSenai->marca = "Epson";
-$ProjetorSenai->resolucao = "4K Full HD";
-$ProjetorSenai->lente = "grande angular";
+$ProjetorSesi->resolucao = "4K Full HD";
+$ProjetorCinema->lente = "grande angular";
 // EXECUTANDO MÉTODOS
+echo "<h3>PROJETOR</h3>";
 echo $ProjetorSenai->ligar()."<br>";
-echo $ProjetorSenai->projetar()."<br>";
-echo $ProjetorSenai->focar()."<br>";
+echo $ProjetorSesi->projetar()."<br>";
+echo $ProjetorCinema->focar()."<br><br>";
 
 // CLASSE AR-CONDICIONADO
 class ArCondicionado {
@@ -143,15 +152,19 @@ class ArCondicionado {
 }
 
 // INÍCIO DO OBJETO AR-CONDICIONADO
+$ArCondicionado_salaJantar = new ArCondicionado();
 $ArCondicionado_quarto = new ArCondicionado();
+$ArCondicionado_escritorio = new ArCondicionado();
 // INSTÂNCIANDO OBJETO
+$ArCondicionado_salaJantar->modelo = "portátil";
 $ArCondicionado_quarto->marca = "Split";
-$ArCondicionado_quarto->modelo = "portátil";
 $ArCondicionado_quarto->voltagem = "110V";
+$ArCondicionado_escritorio->marca = "Brastemp"; 
 // EXECUTANDO MÉTODOS
-echo $ArCondicionado_quarto->gelar()."<br>";
+echo "<h3>AR-CONDICIONADO</h3>";
+echo $ArCondicionado_salaJantar->gelar()."<br>";
 echo $ArCondicionado_quarto->esquentar()."<br>";
-echo $ArCondicionado_quarto->ligar()."<br>";
+echo $ArCondicionado_escritorio->ligar()."<br><br>";
 
 // CLASSE LIVRO
 class Livro {
@@ -164,9 +177,10 @@ class Livro {
     public $editora;
 
     // MÉTODO
-    public function ler(){
-        return "Você está lendo um livro da editora ".$this->editora;
+    public function resumir(){
+        return "Você está resumindo todas as ".$this->paginas." páginas deste livro.";
     }
+    
 
     // MÉTODO
     public function emprestar(){
@@ -174,19 +188,22 @@ class Livro {
     }
 
     // MÉTODO
-    public function resumir(){
-        return "Você está resumindo todas as ".$this->paginas." páginas deste livro.";
+    public function ler(){
+        return "Você está lendo um livro da editora ".$this->editora;
     }
 }
 
 // INÍCIO DO OBJETO LIVRO
+$LivroMelissa = new Livro();
 $LivroJoao = new Livro();
+$LivroVitor = new Livro();
 // INSTÂNCIANDO OBJETO
-$LivroJoao->paginas = "250";
+$LivroMelissa->paginas = "250";
 $LivroJoao->titulo = "O Alquimista ";
-$LivroJoao->editora = "Paralela";
+$LivroVitor->editora = "Paralela";
 // EXECUTANDO MÉTODOS
-echo $LivroJoao->ler()."<br>";
+echo "<h3>LIVRO</h3>";
+echo $LivroMelissa->resumir()."<br>";
 echo $LivroJoao->emprestar()."<br>";
-echo $LivroJoao->resumir()."<br>";
+echo $LivroVitor->ler()."<br><br>";
 ?>
