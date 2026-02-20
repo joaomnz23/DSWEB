@@ -1,0 +1,51 @@
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+    text-align: center;
+    background: #fafafa;
+}
+
+.area {
+    margin: 0 auto;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #333;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 10px;
+    
+}
+
+form, fieldset {
+    display: inline;
+}
+
+fieldset {
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+h4 {
+    margin: 0;
+}
+
+.mensagem, .posicao {
+    font-weight: bold;
+}
+
+.espacamento {
+    height: 500px;
+}
+
+
+input, select {
+    width: 300px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px; 
+    margin-top: 5px;
+    outline: none;
+}

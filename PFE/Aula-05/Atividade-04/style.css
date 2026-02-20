@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+.area{
+    margin: 20px auto;
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#mensagem, #posicao{
+    font-weight: bold;
+}
+
+#resultado{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+}
