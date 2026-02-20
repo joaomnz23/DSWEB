@@ -15,7 +15,14 @@ function addLista(){
     let turma = document.getElementById("turma").value;
     
     // Adicionando texto à linha
-    novoAluno.textContent = `${contadorAluno}. Nome: ${nome} | E-mail: ${email} | RM: ${rm} | Tel: ${telefone} | Turma: ${turma}`;
+    novoAluno.innerHTML = `
+        <b>Aluno ${contadorAluno}</b> <br>
+        Nome: ${nome} <br> 
+        E-mail: ${email} <br>
+        RM: ${rm} <br>
+        Tel: ${telefone} <br> 
+        Turma: ${turma} <br>
+        `;
 
     // Atribuindo ID
     novoAluno.setAttribute("id", contadorAluno);
