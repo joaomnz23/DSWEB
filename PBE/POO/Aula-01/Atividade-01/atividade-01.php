@@ -1,7 +1,8 @@
 <?php
 
 // CLASSE ESTOJO
-class Estojo {
+class Estojo
+{
 
     // ATRIBUTOS
     public $cor;
@@ -11,23 +12,24 @@ class Estojo {
     public $peso;
 
     // MÉTODO
-    public function abrir(){
+    public function abrir()
+    {
 
-        return "Você abriu um estojo que é ".$this->cor;
-
+        return "Você abriu um estojo que é " . $this->cor;
     }
 
     // MÉTODO
-    public function fechar(){   
-        
-        return "Você acabou de fechar um estojo ".$this->capacidade;
+    public function fechar()
+    {
 
+        return "Você acabou de fechar um estojo " . $this->capacidade;
     }
 
     // MÉTODO 
-    public function organizar(){
+    public function organizar()
+    {
 
-        return "Depois que você organizou esse estojo ele tem peso de ".$this->peso;
+        return "Depois que você organizou esse estojo ele tem peso de " . $this->peso;
     }
 }
 
@@ -41,12 +43,13 @@ $EstojoJoao->capacidade = "grande";
 $EstojoVitor->peso = "400g";
 // EXECUTANDO MÉTODOS
 echo "<h3>ESTOJO</h3>";
-echo $EstojoMelissa->abrir()."<br>";
-echo $EstojoJoao->fechar()."<br>";
-echo $EstojoVitor->organizar()."<br><br>";
+echo $EstojoMelissa->abrir() . "<br>";
+echo $EstojoJoao->fechar() . "<br>";
+echo $EstojoVitor->organizar() . "<br><br>";
 
 // CLASSE BORRACHA
-class Borracha {
+class Borracha
+{
 
     // ATRIBUTOS
     public $tamanho;
@@ -56,37 +59,41 @@ class Borracha {
     public $tema;
 
     // MÉTODO
-    public function apagar(){
-        return "Depois de você apagar com sua borracha, ela está ".$this->tamanho;
+    public function apagar()
+    {
+        return "Depois de você apagar com sua borracha, ela está " . $this->tamanho;
     }
 
     // MÉTODO
-    public function emprestar(){
-        return "Você acabou de emprestar sua borracha ".$this->cor;
+    public function emprestar()
+    {
+        return "Você acabou de emprestar sua borracha " . $this->cor;
     }
 
     // MÉTODO
-    public function morder(){
-        return "Não é recomendado morder borrachas de ".$this->material;
+    public function morder()
+    {
+        return "Não é recomendado morder borrachas de " . $this->material;
     }
 }
 
 // INÍCIO DO OBJETO BORRACHA
 $BorrachaEscolarMelissa = new Borracha();
 $BorrachaEscolarJoao = new Borracha();
-$BorrachaEscolarVitor = new Borracha();  
+$BorrachaEscolarVitor = new Borracha();
 // INSTÂNCIANDO OBJETO
 $BorrachaEscolarMelissa->tamanho = "pequena";
 $BorrachaEscolarJoao->cor = "vermelha";
 $BorrachaEscolarVitor->material = "látex";
 // EXECUTANDO MÉTODOS
 echo "<h3>BORRACHA</h3>";
-echo $BorrachaEscolarMelissa->apagar()."<br>";
-echo $BorrachaEscolarJoao->emprestar()."<br>";
-echo $BorrachaEscolarVitor->morder()."<br><br>";
+echo $BorrachaEscolarMelissa->apagar() . "<br>";
+echo $BorrachaEscolarJoao->emprestar() . "<br>";
+echo $BorrachaEscolarVitor->morder() . "<br><br>";
 
 // CLASSE PROJETOR
-class Projetor {
+class Projetor
+{
 
     // ATRIBUTOS
     public $lente;
@@ -96,18 +103,21 @@ class Projetor {
     public $resolucao;
 
     // MÉTODO
-    public function ligar(){
-        return "O projetor ".$this->marca." está ligando...";
+    public function ligar()
+    {
+        return "O projetor " . $this->marca . " está ligando...";
     }
 
     // MÉTODO
-    public function projetar(){
-        return "Você está projetando um vídeo com resolução ".$this->resolucao;
+    public function projetar()
+    {
+        return "Você está projetando um vídeo com resolução " . $this->resolucao;
     }
 
     // MÉTODO
-    public function focar(){
-        return "Tentativa de configuração de uma lente ".$this->lente;
+    public function focar()
+    {
+        return "Tentativa de configuração de uma lente " . $this->lente;
     }
 }
 
@@ -121,12 +131,13 @@ $ProjetorSesi->resolucao = "4K Full HD";
 $ProjetorCinema->lente = "grande angular";
 // EXECUTANDO MÉTODOS
 echo "<h3>PROJETOR</h3>";
-echo $ProjetorSenai->ligar()."<br>";
-echo $ProjetorSesi->projetar()."<br>";
-echo $ProjetorCinema->focar()."<br><br>";
+echo $ProjetorSenai->ligar() . "<br>";
+echo $ProjetorSesi->projetar() . "<br>";
+echo $ProjetorCinema->focar() . "<br><br>";
 
 // CLASSE AR-CONDICIONADO
-class ArCondicionado {
+class ArCondicionado
+{
 
     // ATRIBUTOS
     public $marca;
@@ -136,18 +147,21 @@ class ArCondicionado {
     public $controle;
 
     // MÉTODO
-    public function gelar(){
-        return "Seu ar-condicionado ".$this->modelo." está gelando o local";
+    public function gelar()
+    {
+        return "Seu ar-condicionado " . $this->modelo . " está gelando o local";
     }
 
     // MÉTODO
-    public function esquentar(){
-        return "Para o ar-condicionado ".$this->marca." aquecer a sala, deve estar conectado em uma fonte ".$this->voltagem;
+    public function esquentar()
+    {
+        return "Para o ar-condicionado " . $this->marca . " aquecer a sala, deve estar conectado em uma fonte " . $this->voltagem;
     }
 
     // MÉTODO
-    public function ligar(){
-        return "O ar-condicionado ".$this->marca." está ligando...";
+    public function ligar()
+    {
+        return "O ar-condicionado " . $this->marca . " está ligando...";
     }
 }
 
@@ -159,15 +173,16 @@ $ArCondicionado_escritorio = new ArCondicionado();
 $ArCondicionado_salaJantar->modelo = "portátil";
 $ArCondicionado_quarto->marca = "Split";
 $ArCondicionado_quarto->voltagem = "110V";
-$ArCondicionado_escritorio->marca = "Brastemp"; 
+$ArCondicionado_escritorio->marca = "Brastemp";
 // EXECUTANDO MÉTODOS
 echo "<h3>AR-CONDICIONADO</h3>";
-echo $ArCondicionado_salaJantar->gelar()."<br>";
-echo $ArCondicionado_quarto->esquentar()."<br>";
-echo $ArCondicionado_escritorio->ligar()."<br><br>";
+echo $ArCondicionado_salaJantar->gelar() . "<br>";
+echo $ArCondicionado_quarto->esquentar() . "<br>";
+echo $ArCondicionado_escritorio->ligar() . "<br><br>";
 
 // CLASSE LIVRO
-class Livro {
+class Livro
+{
 
     // ATRIBUTOS
     public $titulo;
@@ -177,19 +192,22 @@ class Livro {
     public $editora;
 
     // MÉTODO
-    public function resumir(){
-        return "Você está resumindo todas as ".$this->paginas." páginas deste livro.";
-    }
-    
-
-    // MÉTODO
-    public function emprestar(){
-        return "Você está emprestando o livro ".$this->titulo;
+    public function resumir()
+    {
+        return "Você está resumindo todas as " . $this->paginas . " páginas deste livro.";
     }
 
+
     // MÉTODO
-    public function ler(){
-        return "Você está lendo um livro da editora ".$this->editora;
+    public function emprestar()
+    {
+        return "Você está emprestando o livro " . $this->titulo;
+    }
+
+    // MÉTODO
+    public function ler()
+    {
+        return "Você está lendo um livro da editora " . $this->editora;
     }
 }
 
@@ -203,7 +221,6 @@ $LivroJoao->titulo = "O Alquimista ";
 $LivroVitor->editora = "Paralela";
 // EXECUTANDO MÉTODOS
 echo "<h3>LIVRO</h3>";
-echo $LivroMelissa->resumir()."<br>";
-echo $LivroJoao->emprestar()."<br>";
-echo $LivroVitor->ler()."<br><br>";
-?>
+echo $LivroMelissa->resumir() . "<br>";
+echo $LivroJoao->emprestar() . "<br>";
+echo $LivroVitor->ler() . "<br><br>";
