@@ -11,7 +11,7 @@
     {
         public function calcularDesconto()
         {
-            return $this->preco = ($this->preco * 10/100) - $this->preco;
+            return $this->preco = $this->preco - ($this->preco * 10/100);
         }
     }
 
@@ -19,6 +19,13 @@
     {
         public function calcularDesconto()
         {
-            return $this->preco = ($this->preco * 20/100) - $this->preco;
+            if($estoque <= 5){
+
+            }
+            else    
+            {
+                return $this->preco = $this->preco - ($this->preco * 20/100);
+            }
+            
         }
     }
