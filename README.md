@@ -12,10 +12,9 @@ Este repositório é um compilado de estudos, práticas e desafios desenvolvidos
 ---
 
 ## 📌 Índice
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Tecnologias e Conteúdos](#-tecnologias-e-conteúdos)
-- [Como Executar Localmente](#-como-executar-localmente)
-- [Organização](#-organização)
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Tecnologias e Conteúdos](#tecnologias-e-conteúdos)
+- [Como Executar Localmente](#como-executar-o-php-localmente)
 
 ---
 
