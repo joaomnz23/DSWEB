@@ -38,12 +38,12 @@ O **DSWEB** reúne uma série de atividades que partem do básico estrutural at�
 * **Projeto:** Site interativo com contabilização de cliques em tempo real.
 
 ### <img height="25" src="https://skillicons.dev/icons?i=php&theme=dark"/> PHP (Back-end & POO)
-Implementação prática dos **4 pilares da POO**:
-1.  **Abstração:** Modelagem de classes.
-2.  **Encapsulamento:** Proteção de dados.
-3.  **Herança:** Reutilização de código.
-4.  **Polimorfismo:** Especialização de comportamentos.
-
+* Implementação prática dos **4 pilares da POO**:
+ 1.  **Abstração:** Modelagem de classes.
+ 2.  **Encapsulamento:** Proteção de dados.
+ 3.  **Herança:** Reutilização de código.
+ 4.  **Polimorfismo:** Especialização de comportamentos.
+* Uso do método `__construct()`
 ---
 
 ## Como Executar o PHP Localmente
