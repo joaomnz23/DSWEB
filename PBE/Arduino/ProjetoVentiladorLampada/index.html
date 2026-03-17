@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>IHM Arduino</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Controle Lâmpada</h1>
+  <center>
+    <button onclick="enviar('ligarLampada')">Ligar</button>
+    <button onclick="enviar('desligarLampada')">Desligar</button>
+    <button onclick="enviar('piscarLampada')">Piscar</button>
+
+  </center>
+  <br>
+  <img id="lampada">
+
+  <h1>Controle Ventilador</h1>
+  <center>
+    <button onclick="enviar('ligarVentilador')">Ligar</button>
+    <button onclick="enviar('desligarVentilador')">Desligar</button>
+  </center>
+  <img id="ventilador">
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
