@@ -2,7 +2,8 @@
 
 header('Content-Type: application/json'); // Define o tipo de conteúdo da resposta como JSON
 header('Access-Control-Allow-Origin: *'); // Permite requisições de qualquer origem (CORS)
-header('Access-Control-Allow-Methods: GET, POST'); // Define os métodos HTTP permitidos
+header("Access-Control-Allow-Headers: Content-Type"); // Permite recever Content-Type no
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS'); // Define os métodos HTTP permitidos
 
 $method = $_SERVER['REQUEST_METHOD']; // Captura o método HTTP da requisição atual (GET, POST, etc.)
 //echo $method."\n";
@@ -35,7 +36,7 @@ switch ($endpoint) {
     case 'hello':
         echo json_encode([
             'status'  => 'success',
-            'mensagem' => 'Ola! A API esta funcionando.'
+            'message' => 'Ola! A API esta funcionando.'
         ]);
         break;
 
