@@ -14,29 +14,32 @@ if (isset($segments[2])) {
     $id = null;
 }
 
-switch($method){
+switch ($method) {
     // -------------------------------------------------------
-    // GET /categorias 
-    // GET /categorias/1
+    // GET /produtos 
+    // GET /produtos/1
     // -------------------------------------------------------
     case 'GET':
-        $resultado = $database->executeQuery('SELECT * FROM categorias');
-        $categorias = $resultado->fetchAll();
+        $resultado = $database->executeQuery('SELECT * FROM produtos');
+        $produtos = $resultado->fetchAll();
 
         echo json_encode([
             'status' => 'success',
-            'data'   => $categorias
+            'data'   => $produtos
         ]);
         break;
     // -------------------------------------------------------
-    // POST /categorias
-    // Body: { "nome": "Bebidas" }
+    // POST /produtos
+    // Body: { "nome": "Café Expresso" }
     // -------------------------------------------------------
     case 'POST':
         $body = json_decode(file_get_contents('php://input'), true);
         $nome = trim($body['nome']);
+        $preco = trim($body['preco']);
+        $categoriaID = trim($body['categoria_id']);
+        $disponivel = 1;
 
-        if(!$nome){
+        if (!$nome) {
             echo json_encode([
                 'status' => 'error',
                 'message' => 'Campo nome não informado'
@@ -44,27 +47,28 @@ switch($method){
             break;
         }
         $database->executeQuery(
-            "INSERT INTO categorias (nome) VALUES (:nome)",
-            [ ':nome' => $nome ]
+            "INSERT INTO produtos (nome, preco, categoria_id, disponivel) 
+            VALUES (:nome, :preco, :categoria_id, :disponivel)",
+            [':nome' => $nome, ':preco' => $preco, ':categoria_id' => $categoriaID, ':disponivel' => $disponivel]
         );
 
         http_response_code(201);
         echo json_encode([
             'status' => 'success',
-            'message' => 'Categoria cadastrada com sucesso',
+            'message' => 'Produto cadastrado com sucesso',
             'idCategoria' => $database->lastInsertId()
         ]);
-        
+
         break;
     // -------------------------------------------------------
-    // PUT /categorias/1
+    // PUT /produtos/1
     // Body: { "nome": "Salgados" }
     // -------------------------------------------------------
     case 'PUT':
-        
+
         break;
     // -------------------------------------------------------
-    // DELETE /categorias/1
+    // DELETE /produtos/1
     // -------------------------------------------------------
     case 'DELETE':
         if (!$id) {
@@ -75,24 +79,24 @@ switch($method){
             ]);
             break;
         }
- 
-        $stmt = $database->executeQuery(
-            'DELETE FROM categorias WHERE id = :id',
+
+        $produtos = $database->executeQuery(
+            'DELETE FROM produtos WHERE id = :id',
             [':id' => $id]
         );
- 
-        if ($stmt->rowCount() === 0) {
+
+        if ($produtos->rowCount() === 0) {
             http_response_code(404);
             echo json_encode([
                 'status'  => 'error',
-                'message' => 'Categoria não encontrada.'
+                'message' => 'Produto não encontrado.'
             ]);
             break;
         }
- 
+
         echo json_encode([
             'status'  => 'success',
-            'message' => 'Categoria removida com sucesso.'
+            'message' => 'Produto removido com sucesso.'
         ]);
         break;
     // -------------------------------------------------------
@@ -105,6 +109,3 @@ switch($method){
             'message' => 'Método não permitido.'
         ]);
 }
-
-
-?>

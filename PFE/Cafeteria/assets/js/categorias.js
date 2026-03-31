@@ -1,9 +1,89 @@
+
 var divResposta = document.getElementById("resposta")
 
+var inputNome = document.getElementById("nome")
 
 document.addEventListener('DOMContentLoaded', getCategorias)
+document.getElementById('botaoEnviar').addEventListener('click', postCategoria)
 
 async function getCategorias() {
-    var requisicao = fetch('http://localhost/Cafeteria-API/categorias');
-    console.log(requisicao);
+    try {
+        var requisicao = await fetch("http://localhost/Cafeteria-API/categorias")
+        var resposta = await requisicao.json()
+
+        console.log(resposta)
+
+        // Gera as linhas automaticamente para todos os itens do array
+        const linhas = resposta.data.map(item => `
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.nome}</td>
+            <td><button onclick="deleteCategoria(${item.id})">Deletar</button></td>
+        </tr>
+    `).join("");
+
+        console.log(linhas)
+        divResposta.innerHTML = `
+        <table class="sua-classe">
+            <thead>
+                <tr>
+                    <th colspan="3" ><center>Categorias Cadastradas</center></th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${linhas}
+            </tbody>
+        </table>
+    `;
+    }
+    catch (error) {
+        console.error('Algo deu errado: ', erro);
+    }
+
+
+}
+
+
+
+async function postCategoria() {
+    try {
+        var requisicao = await fetch("http://localhost/cafeteria-api/categorias", {
+            method: "POST",
+            body: JSON.stringify({ nome: inputNome.value })
+        })
+
+        var resposta = await requisicao.json()
+        console.log(resposta)
+
+        //Limpa o campo
+        inputNome.value = ""
+
+        getCategorias()
+    }
+    catch (error) {
+        console.error('Algo deu errado: ', erro);
+    }
+}
+
+
+async function deleteCategoria(id) {
+    try {
+        var requisicao = await fetch("http://localhost/cafeteria-api/categorias/" + id, {
+            method: "DELETE"
+        })
+
+        var resposta = await requisicao.json()
+        console.log(resposta)
+
+        getCategorias()
+    }
+    catch (error) {
+        console.error('Algo deu errado: ', erro);
+    }
+
 }

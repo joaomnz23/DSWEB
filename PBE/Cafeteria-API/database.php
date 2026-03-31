@@ -15,10 +15,8 @@ class Database extends PDO
                 "mysql:host=$this->DB_HOST;port=$this->DB_PORT;dbname=$this->DB_NAME;charset=utf8",
                 $this->DB_USER,
                 $this->DB_PASSWORD,
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,        //Exibe os erros 
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                ]   //Todos os retornos do Banco de Dados ja estarão no formato associativo
+                [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //Exibe os erros 
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC] //Todos os retornos do Banco de Dados ja estarão no formato associativo
             );
         } catch (PDOException $e) {
             http_response_code(500);
