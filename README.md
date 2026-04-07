@@ -44,6 +44,7 @@ O **DSWEB** reúne uma série de atividades que partem do básico estrutural at�
  3.  **Herança:** Reutilização de código.
  4.  **Polimorfismo:** Especialização de comportamentos.
 * Uso do método `__construct()`
+* Comunicação entre sistemas com API REST
 ---
 
 ## Como Executar o PHP Localmente
