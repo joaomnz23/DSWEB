@@ -38,6 +38,10 @@ switch ($endpoint) {
         require_once 'controllers/pedidos.php';
         break;
 
+    case 'pedido-item':
+        require_once 'controllers/pedido-item.php';
+        break;
+
     default:
         http_response_code(404);
         echo json_encode([
