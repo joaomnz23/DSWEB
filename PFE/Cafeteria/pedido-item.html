@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Pedidos</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="categorias.html">Categorias</a></li>
+        <li><a href="#about"></a></li>
+    </ul>
+
+    <div class="formulario">
+        <h3 id="pedidoTitulo"></h3>
+
+        <label for="nome">Produto</label>
+        <select id="produtos" name="produtos">
+            <option value="">Carregando produtos...</option>
+        </select>
+
+        <label for="nome">Quantidade</label>
+        <input type="text" id="quantidade" name="quantidade">
+
+        <button type="button" id="botaoEnviar" class="button button-enviar">Adicionar Produto</button>
+    </div>
+
+
+
+    <div id="resposta" class="tabela"></div>
+
+    <br>
+
+    <h4 id="resultado-total"></h4>
+</body>
+<script src="./assets/js/pedido-item.js"></script>
+
+</html>

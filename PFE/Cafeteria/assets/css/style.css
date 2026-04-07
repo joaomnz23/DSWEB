@@ -94,7 +94,7 @@ input[type=text], select {
 
 /* ========== Estilização da tabela de Dados ========== */
 
-.tabela {
+.tabela, #resultado-total {
   width: 700px;
   margin: 0 auto;
 }

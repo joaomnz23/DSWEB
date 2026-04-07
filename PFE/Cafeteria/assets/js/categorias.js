@@ -42,7 +42,7 @@ async function getCategorias() {
     `;
     }
     catch (error) {
-        console.error('Algo deu errado: ', erro);
+        console.error('Algo deu errado: ', error);
     }
 
 
@@ -66,7 +66,7 @@ async function postCategoria() {
         getCategorias()
     }
     catch (error) {
-        console.error('Algo deu errado: ', erro);
+        console.error('Algo deu errado: ', error);
     }
 }
 
@@ -83,7 +83,7 @@ async function deleteCategoria(id) {
         getCategorias()
     }
     catch (error) {
-        console.error('Algo deu errado: ', erro);
+        console.error('Algo deu errado: ', error);
     }
 
 }
