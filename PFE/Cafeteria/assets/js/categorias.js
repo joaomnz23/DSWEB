@@ -18,7 +18,7 @@ async function getCategorias() {
         <tr>
             <td>${item.id}</td>
             <td>${item.nome}</td>
-            <td><button onclick="deleteCategoria(${item.id})">Deletar</button></td>
+            <td><button class="button button-enviar" onclick="deleteCategoria(${item.id})">Deletar</button></td>
         </tr>
     `).join("");
 

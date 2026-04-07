@@ -53,7 +53,7 @@ async function getProdutos() {
             <td>${item.preco}</td>
             <td>${item.categoria_id}</td>
             <td>${item.disponivel}</td>
-            <td><button onclick="deleteProduto(${item.id})">Deletar</button></td>
+            <td><button class="button button-enviar" onclick="deleteProduto(${item.id})">Deletar</button></td>
         </tr>
     `).join("");
 
@@ -99,6 +99,7 @@ async function postProduto() {
 
         //Limpa o campo
         inputNome.value = ""
+        inputPreco.value = ""
 
         getProdutos()
     }
