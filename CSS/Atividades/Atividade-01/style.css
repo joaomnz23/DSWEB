@@ -1,36 +1,39 @@
-/* ----- SELETOR TAG ----- */
 body {
     background-color: #FFFAE3;
 }
+
 p {
-    color:#5D576B;
+    color: #5D576B;
 }
 
 li {
-    color:#5D576B;
+    color: #5D576B;
 }
 
 table {
-  border-collapse: collapse;
-  text-align: center;
-  width: 60%;
-  margin: 20px auto;
-  color:#5D576B;
+    border-collapse: collapse;
+    text-align: center;
+    width: 60%;
+    margin: 20px auto;
+    color: #5D576B;
 }
 
-th, td {
-  border: 2px solid #5D576B;
-  padding: 10px;
+th,
+td {
+    border: 2px solid #5D576B;
+    padding: 10px;
 }
 
 img {
-  width: 100px;   /* tamanho da foto */
-  height: auto;
-  border-radius: 8px; /* bordas arredondadas */
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
 }
 
 
-body, p, li {
+body,
+p,
+li {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -42,7 +45,6 @@ h3 {
     border-radius: 50px;
 }
 
-/* ----- SELETOR CLASS ----- */
 .titulo-1 {
     color: #F7567C;
 }
@@ -59,9 +61,10 @@ h3 {
     color: #F7567C;
 }
 
-.kim{
+.kim {
     height: 250px;
-    width: 100px;;
+    width: 100px;
+    ;
 }
 
 .div-resumo {
@@ -96,6 +99,9 @@ h3 {
     border-radius: 50px;
 }
 
-.titulo-1, .resumo, .titulo-personagens, .titulo-imagens {
+.titulo-1,
+.resumo,
+.titulo-personagens,
+.titulo-imagens {
     font-family: 'Bangers', cursive;
 }
