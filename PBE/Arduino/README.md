@@ -1,89 +1,72 @@
-<h1 align="center"> DSWEB - Automação & IoT (Arduino + PHP)</h1>
+# Controle de Dispositivos com Arduino e PHP
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white" />
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/CMD-4D4D4D?style=for-the-badge&logo=circuitpython&logoColor=white" />
-</p>
+Interface web que aciona uma lâmpada e um ventilador ligados a uma placa Arduino, com o PHP enviando os comandos pela porta serial.
 
-Esta seção do repositório é dedicada à integração entre **Web e Hardware**. Aqui, o foco é o controle de dispositivos físicos em tempo real, utilizando o PHP como ponte de comando entre uma interface interativa e a placa Arduino via comunicação serial (CMD).
+[![Arduino](https://img.shields.io/badge/Arduino-IoT-00979D?logo=arduino)](https://www.arduino.cc/)
+[![PHP](https://img.shields.io/badge/PHP-puro-777BB4?logo=php)](https://www.php.net/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-puro-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML-5-E34F26?logo=html5)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS-3-1572B6?logo=css3)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
----
+## Sobre
 
-## 📌 Índice
-- [Fluxo de Comunicação](#-fluxo-de-comunicação)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Projetos e Funcionalidades](#-projetos-e-funcionalidades)
-- [Como Configurar](#-como-configurar)
+Esta pasta reúne projetos que ligam a web a um dispositivo físico. A página HTML envia o comando ao PHP, que o repassa à placa Arduino pela porta serial, e o firmware da placa aciona a saída digital correspondente.
 
----
+Fluxo de comunicação:
 
-##  Fluxo de Comunicação
+1. **Navegador:** o JavaScript captura o clique e chama `arduino_control.php?acao=...` com Fetch (método GET).
+2. **PHP:** o controlador instancia a classe `Arduino`, que recebe a porta COM no construtor e envia um caractere de comando à porta com a função `exec`.
+3. **Arduino:** o firmware (`.ino`) lê o caractere pela serial (9600 baud) e liga, desliga ou pisca o dispositivo.
 
-O sistema opera em uma arquitetura de camadas para garantir que o clique no navegador resulte em uma ação física:
+As respostas do PHP aparecem no console do navegador (F12).
 
-1.  **Frontend (HTML/JS):** O usuário interage com botões ou imagens. O JavaScript captura o evento e envia os parâmetros via **Método GET** usando o método **Fetch**.
-2.  **Backend (PHP POO):** Um controlador recebe a requisição, instancia uma classe de comando e utiliza o método `__construct()` para preparar a execução.
-3.  **Sistema (CMD):** O PHP executa uma linha de comando no sistema operacional que envia o código para a porta serial onde o Arduino está conectado.
-4.  **Hardware (Arduino):** O firmware (`.ino`) lê o comando serial e aciona o componente (LED, Relé, Motor).
+## Projetos
 
----
+| Projeto | Pasta | Dispositivo | Controle |
+|---|---|---|---|
+| Código base | [`Base-Conexao/`](./Base-Conexao) | LED | Scripts `ligar.php` e `desligar.php` |
+| Lâmpada com botões | [`Projeto-Blink-01/`](./Projeto-Blink-01/) | Lâmpada (pino 7) | Botões Ligar, Desligar e Piscar |
+| Lâmpada por cliques | [`Projeto-Blink-02/`](./Projeto-Blink-02/) | LED da própria placa (`LED_BUILTIN`) | Clique na imagem: 1 liga, 2 desliga, 3 pisca |
+| Ventilador | [`Projeto-Ventilador/`](./Projeto-Ventilador/) | Ventilador (pino 7) | Clique na imagem: 1 liga, 2 desliga |
+| Lâmpada e ventilador | [`Projeto-Ventilador-Lampada/`](./Projeto-Ventilador-Lampada/) | Lâmpada (pino 7) e ventilador (pino 6) | Botões na mesma página |
 
-##  Tecnologias e Conteúdos
+## Tecnologias
 
-### <img height="25" src="https://skillicons.dev/icons?i=arduino&theme=dark"/> Arduino (Firmware)
-* Desenvolvimento de arquivos `.ino` focados em leitura serial e controle de portas digitais.
-* Gerenciamento de estados (Ligar, Desligar, Piscar).
+| Camada | Tecnologia |
+|---|---|
+| Firmware | Arduino (C++), comunicação serial a 9600 baud |
+| Back-end | PHP com orientação a objetos |
+| Front-end | HTML5, CSS3, JavaScript (Fetch API) |
+| Servidor local | Apache (XAMPP) |
 
-### <img height="25" src="https://skillicons.dev/icons?i=php&theme=dark"/> PHP (Integração & POO)
-* **Classes de Controle:** Métodos específicos para cada tipo de carga (Luz, Ventilador).
-* **Interação com OS:** Uso de funções de sistema para disparar comandos via CMD.
-* **Persistência de dados:** Passagem de parâmetros de controle via URL (GET).
+## Hardware
 
-### <img height="25" src="https://skillicons.dev/icons?i=js&theme=dark"/> JavaScript (Interface Dinâmica)
-* **Fetch:** Requisições assíncronas para o PHP sem recarregar a página.
-* **Eventos de Clique:** Lógica para identificar 1, 2 ou 3 cliques em elementos visuais.
-* **Debug:** Logs detalhados no console para monitoramento da comunicação.
+| Componente | Uso |
+|---|---|
+| Placa Arduino (Uno ou Mega) | Recebe os comandos pela serial |
+| Cabo USB | Alimentação e comunicação com o computador |
+| Módulo relé | Aciona a lâmpada e o ventilador (um por dispositivo) |
+| Lâmpada e ventilador | Dispositivos controlados |
+| LED comum | Usado no projeto de código base |
 
----
+Atenção: ao trabalhar com relés e cargas de 110/220 V, isole bem os contatos elétricos para evitar acidentes.
 
-##  Projetos e Funcionalidades
+## Como executar
 
-| Projeto | Atuador | Controle por Imagem | Descrição |
-| :--- | :--- | :---: | :--- |
-| **Código Base** | LEDs Comuns | Não | Funções básicas de ON, OFF e Blink. |
-| **Lâmpada por botões** | Lâmpada + Relé | Não | Acionamento de carga real AC (110/220V). |
-| **Controle por imagem** | Diversos | **Sim** | 1 clique: Liga \| 2 cliques: Desliga \| 3 cliques: Piscar. |
-| **Controle Ventilador** | Ventilador + Relé | Não | Acionamento de carga real AC (110/220V) e climatização. |
-| **Controle Híbrido** | Lâmpada + Ventilador | Não | Controle de múltiplos dispositivos em uma única interface. |
+### Pré-requisitos
 
+- Windows (os comandos de porta usam a sintaxe `COMx` do prompt de comando)
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- [XAMPP](https://www.apachefriends.org/) com Apache e PHP, com a função `exec` habilitada
+- Placa Arduino conectada por USB
 
----
+### Passo a passo
 
-##  Como Configurar
+1. **Firmware.** Abra o arquivo `.ino` do projeto escolhido na Arduino IDE e carregue na placa. Confirme que os pinos do código correspondem à montagem física.
+2. **Porta serial.** Descubra a porta da placa (por exemplo, `COM4`) na Arduino IDE ou no Gerenciador de Dispositivos e ajuste o valor em `new Arduino("COM4")` no arquivo `arduino_control.php` do projeto. Os scripts do código base usam `COM5`.
+3. **Monitor Serial.** Mantenha o Monitor Serial da Arduino IDE fechado, pois ele ocupa a porta.
+4. **Servidor.** Clone o repositório dentro de `htdocs`, inicie o Apache no XAMPP e acesse o projeto, por exemplo:
 
-1.  **Hardware:**
-    * Carregue o arquivo `.ino` correspondente na sua placa Arduino.
-    * Certifique-se de que os pinos definidos no código condizem com a montagem física.
-
-2.  **Servidor Local:**
-    * Certifique-se de que o PHP tem permissão para executar funções de sistema (`exec`, `shell_exec`).
-    * Mantenha o Arduino conectado via USB e identifique a porta COM correta.
-
-3.  **Execução:**
-    * Acesse a interface HTML pelo navegador.
-    * Abra o Console do Desenvolvedor (F12) para visualizar as mensagens de **debug** do JavaScript.
-
----
-
-##  Requisitos Técnicos
-* Servidor Apache (XAMPP/WAMP).
-* Placa Arduino (Uno/Mega).
-* Cabo de comunicação USB.
-* Módulo Relé (para projetos com lâmpada e ventilador).
-
----
-> **Nota:** Este projeto demonstra a viabilidade de usar PHP como uma linguagem de controle de hardware em ambientes de estudo e prototipagem rápida.
-
-> **Aviso:** Ao lidar com relés e lâmpadas reais, certifique-se de isolar bem os contatos elétricos para evitar acidentes!
+   ```
+   http://localhost/DSWEB/PBE/Arduino/ProjetoBlink/
+   ```
