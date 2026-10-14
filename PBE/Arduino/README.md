@@ -68,5 +68,5 @@ Atenção: ao trabalhar com relés e cargas de 110/220 V, isole bem os contatos 
 4. **Servidor.** Clone o repositório dentro de `htdocs`, inicie o Apache no XAMPP e acesse o projeto, por exemplo:
 
    ```
-   http://localhost/DSWEB/PBE/Arduino/ProjetoBlink/
+   http://localhost/DSWEB/PBE/Arduino/Projeto-Blink-01/
    ```
